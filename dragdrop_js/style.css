@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+.dragview {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.dragview > div {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    flex-basis: 6rem;
+
+    height: 10rem;
+    margin: .5rem;
+
+    background-color: rgb(180, 130, 238);
+    color:white;
+    border-radius: .4em;
+    
+    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    
+    user-select: none;
+    transform-origin: left top;
+    transition: all 0.2s linear;
+    transition-property: width, flex;
+}
+
+/* Added to dragElem when it's currently dragged */
+.dragview > div.dragging {
+    transition: all 0.2s linear;
+    transition-property: width, box-shadow;
+    box-shadow: 0px 0px 33px 0px  rgb(180, 130, 238);
+    z-index: 999;
+}
+
+.dragview > dragtarget {
+    width: 0;
+    transition: width 0.1s linear;
+}
+
+/* Added to dragTarget when a dragElem is intersecting with it */
+.dragview > dragtarget.intersecting {
+    width:2em;
+}

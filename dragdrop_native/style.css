@@ -1,0 +1,16 @@
+.dragview {
+    display:flex;
+}
+
+.dragview > div {
+    flex-grow: 1;
+    height:10rem;
+    background-color: burlywood;
+    margin-right: 1rem;
+    display:flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    user-select: none;
+}
