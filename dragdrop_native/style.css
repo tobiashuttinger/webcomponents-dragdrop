@@ -1,16 +1,33 @@
 .dragview {
     display:flex;
+    flex-wrap: wrap;
 }
 
 .dragview > div {
-    flex-grow: 1;
-    height:10rem;
-    background-color: burlywood;
-    margin-right: 1rem;
-    display:flex;
+    display: flex;
     align-content: center;
     justify-content: center;
     align-items: center;
+    flex-grow: 1;
+    flex-basis: 6rem;
+
+    height:10rem;
+    margin: .5rem;
+
+    background-color: rgb(180, 130, 238);
+    color:white;
+    border-radius: .4em;
+
+    
     font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+
     user-select: none;
+    transform-origin: left top;
+    transition: all 0.2s linear;
+    transition-property: width, flex;
+}
+
+.dragview > div.dragover {
+    outline: 3px dotted black;
 }

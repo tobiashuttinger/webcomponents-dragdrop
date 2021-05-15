@@ -64,29 +64,28 @@ class DragElem extends EventTarget {
     dragstart(ev) {
         this.dispatchEvent(new CustomEvent('dragElChanged', { detail: this }, true));
         ev.dataTransfer.effectAllowed = "move";
-        
-        var img = new Image();
-        //img.src = 'drag.png';
-        ev.dataTransfer.setDragImage(img, 0, 0);
 
     }
 
     dragover(ev) {
         ev.preventDefault();
         console.log('dragover!');
-        this.domEl.style.backgroundColor = 'red';
-        ev.dataTransfer.dropEffect = "move"
+        ev.dataTransfer.dropEffect = "move";
+        this.domEl.classList.add('dragover');
+
     }
 
     dragleave(ev) {
         ev.preventDefault();
-        this.domEl.style.backgroundColor = 'burlywood';
+        this.domEl.classList.remove('dragover');
+
     }
 
     drop(ev) {
         console.log(ev);
         this.dispatchEvent(new CustomEvent('onDrop', { detail: this }, true));
-        this.domEl.style.backgroundColor = 'burlywood';
+        this.domEl.classList.remove('dragover');
+
     }
 
 }
